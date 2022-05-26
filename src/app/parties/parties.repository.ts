@@ -1,10 +1,10 @@
 import { validate } from 'class-validator';
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, MongoRepository, Repository } from 'typeorm';
 import { CreatePartyDto } from './dto/create-party.dto';
 import { Party } from './entities/party.entity';
 
 @EntityRepository(Party)
-export class PartyRepository extends Repository<Party> {
+export class PartyRepository extends MongoRepository<Party> {
   async createAndSave(createPartyDto: CreatePartyDto) {
     try {
       const party = this.create(createPartyDto);
