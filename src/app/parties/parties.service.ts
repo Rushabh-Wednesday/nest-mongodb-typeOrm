@@ -8,4 +8,8 @@ export class PartiesService {
   async create(createPartyDto: CreatePartyDto) {
     return await this.partyRepository.createAndSave(createPartyDto);
   }
+
+  async findAll(filterObj) {
+    return await this.partyRepository.findAll(filterObj);
+  }
 }

@@ -10,4 +10,9 @@ export class PartiesController {
   async create(@Body() createPartyDto: CreatePartyDto) {
     return await this.partyService.create(createPartyDto);
   }
+
+  @Post('/get-all')
+  async findAll(@Body() filterObj) {
+    return await this.partyService.findAll(filterObj);
+  }
 }
